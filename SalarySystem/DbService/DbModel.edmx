@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="UsersDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="admin_db">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="50" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="salary_db">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="currency" Type="nchar" MaxLength="10" />
+          <Property Name="salary_id" Type="int" Nullable="false" />
+          <Property Name="created_at" Type="datetime" Nullable="false" />
+          <Property Name="salaryAmount" Type="int" />
+        </EntityType>
+        <EntityType Name="userinfo_db">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
+          <Property Name="_union" Type="varchar" MaxLength="50" />
+          <Property Name="current_job" Type="varchar" MaxLength="50" />
+          <Property Name="created_at" Type="datetime" />
+        </EntityType>
+        <Association Name="UserID_SalaryId_FK">
+          <End Role="userinfo_db" Type="Self.userinfo_db" Multiplicity="1" />
+          <End Role="salary_db" Type="Self.salary_db" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="userinfo_db">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="salary_db">
+              <PropertyRef Name="salary_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="UsersDbModelStoreContainer">
+          <EntitySet Name="admin_db" EntityType="Self.admin_db" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="salary_db" EntityType="Self.salary_db" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="userinfo_db" EntityType="Self.userinfo_db" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="UserID_SalaryId_FK" Association="Self.UserID_SalaryId_FK">
+            <End Role="userinfo_db" EntitySet="userinfo_db" />
+            <End Role="salary_db" EntitySet="salary_db" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="UsersDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="admin_db">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="salary_db">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="currency" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="salary_id" Type="Int32" Nullable="false" />
+          <Property Name="created_at" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="salaryAmount" Type="Int32" />
+          <NavigationProperty Name="userinfo_db" Relationship="Self.UserID_SalaryId_FK" FromRole="salary_db" ToRole="userinfo_db" />
+        </EntityType>
+        <EntityType Name="userinfo_db">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="C_union" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="current_job" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="created_at" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="salary_db" Relationship="Self.UserID_SalaryId_FK" FromRole="userinfo_db" ToRole="salary_db" />
+        </EntityType>
+        <Association Name="UserID_SalaryId_FK">
+          <End Role="userinfo_db" Type="Self.userinfo_db" Multiplicity="1" />
+          <End Role="salary_db" Type="Self.salary_db" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="userinfo_db">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="salary_db">
+              <PropertyRef Name="salary_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="UsersDbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="admin_db" EntityType="Self.admin_db" />
+          <EntitySet Name="salary_db" EntityType="Self.salary_db" />
+          <EntitySet Name="userinfo_db" EntityType="Self.userinfo_db" />
+          <AssociationSet Name="UserID_SalaryId_FK" Association="Self.UserID_SalaryId_FK">
+            <End Role="userinfo_db" EntitySet="userinfo_db" />
+            <End Role="salary_db" EntitySet="salary_db" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="UsersDbModelStoreContainer" CdmEntityContainer="UsersDbEntities">
+          <EntitySetMapping Name="admin_db">
+            <EntityTypeMapping TypeName="UsersDbModel.admin_db">
+              <MappingFragment StoreEntitySet="admin_db">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="salary_db">
+            <EntityTypeMapping TypeName="UsersDbModel.salary_db">
+              <MappingFragment StoreEntitySet="salary_db">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="currency" ColumnName="currency" />
+                <ScalarProperty Name="salary_id" ColumnName="salary_id" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="salaryAmount" ColumnName="salaryAmount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="userinfo_db">
+            <EntityTypeMapping TypeName="UsersDbModel.userinfo_db">
+              <MappingFragment StoreEntitySet="userinfo_db">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="C_union" ColumnName="_union" />
+                <ScalarProperty Name="current_job" ColumnName="current_job" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

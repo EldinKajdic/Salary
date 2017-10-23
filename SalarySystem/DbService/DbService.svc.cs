@@ -7,12 +7,38 @@ using System.Text;
 
 namespace DbService
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "DbService" in code, svc and config file together.
-    // NOTE: In order to launch WCF Test Client for testing this service, please select DbService.svc or DbService.svc.cs at the Solution Explorer and start debugging.
     public class DbService : IDbService
     {
-        public void DoWork()
+        UsersDbEntities db = new UsersDbEntities();
+        public bool adminAuth(string username, string password)
         {
+            var adminQuery = (from admins in db.admin_db
+                              where admins.username == username &&
+                              admins.password == password
+                              select admins);
+
+            if(adminQuery.SingleOrDefault() != null)
+            {
+                return true;
+            }
+
+            return false;
         }
+
+        public bool userAuth(string username, string password)
+        {
+            var userQuery = (from users in db.userinfo_db
+                             where users.email == username &&
+                             users.password == password
+                             select users);
+
+            if(userQuery.SingleOrDefault() != null)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
     }
 }

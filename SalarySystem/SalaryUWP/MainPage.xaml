@@ -1,0 +1,22 @@
+﻿<Page
+    x:Class="SalaryUWP.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SalaryUWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:fa="http://schemas.fontawesome.io/icons/"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <TextBlock VerticalAlignment="Top" Margin="20" FontSize="30" HorizontalAlignment="Center" Text="Salary System"/>
+        <TextBlock VerticalAlignment="Top" HorizontalAlignment="Center" Margin="20, 60, 20, 20" Text="Sign in" FontSize="20"/>
+        <Button Content="Connect" VerticalAlignment="top" HorizontalAlignment="Center" Margin="0, 220, 0, 0" Click="Connect_Click"/>
+        <TextBox Name="usernameTxtBox" HorizontalAlignment="Center" Margin="0,117,0,0" TextWrapping="Wrap" PlaceholderText="Username" VerticalAlignment="Top" Width="220"/>
+        <PasswordBox Name="passwordTxtBox" HorizontalAlignment="Center" Margin="0,160,0,0" PlaceholderText="Password" VerticalAlignment="Top" Width="220"/>
+        <TextBlock Name="loginStatusText" Text="" VerticalAlignment="Top" HorizontalAlignment="Center"
+                   Margin="0, 280, 0, 0"/>
+        <ProgressBar x:Name="LoadingBar" Visibility="Collapsed" IsEnabled="False" IsIndeterminate="true" Height="4" HorizontalAlignment="Stretch"/>
+        <Image VerticalAlignment="Bottom" HorizontalAlignment="Center" Source="Assets/salarylogo.png" MaxHeight="500"/>
+    </Grid>
+</Page>
