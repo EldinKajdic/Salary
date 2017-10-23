@@ -29,7 +29,7 @@ namespace SalaryUWP
         {
             this.InitializeComponent();
             ApplicationView.PreferredLaunchViewSize = new Size(500, 800);
-            ApplicationView.GetForCurrentView().SetPreferredMinSize(new Size(400, 800));
+            ApplicationView.GetForCurrentView().SetPreferredMinSize(new Size(500, 2000));
             ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
         }
 
@@ -47,9 +47,11 @@ namespace SalaryUWP
             bool loginStatus = await dbServiceReference.adminAuthAsync(usernameInput, passwordInput);
             LoadingBar.IsEnabled = false;
             LoadingBar.Visibility = Visibility.Collapsed;
+
             if (loginStatus == true)
             {
                 loginStatusText.Text = "You have successfully logged in!";
+                Frame.Navigate(typeof(AdminContent));
             }
             else
             {
