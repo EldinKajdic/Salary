@@ -6,32 +6,52 @@
       <xsd:import schemaLocation="http://localhost:59253/DbService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="IDbService_adminAuth_InputMessage">
-    <wsdl:part name="parameters" element="tns:adminAuth" />
+  <wsdl:message name="IDbService_AdminAuth_InputMessage">
+    <wsdl:part name="parameters" element="tns:AdminAuth" />
   </wsdl:message>
-  <wsdl:message name="IDbService_adminAuth_OutputMessage">
-    <wsdl:part name="parameters" element="tns:adminAuthResponse" />
+  <wsdl:message name="IDbService_AdminAuth_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AdminAuthResponse" />
   </wsdl:message>
-  <wsdl:message name="IDbService_userAuth_InputMessage">
-    <wsdl:part name="parameters" element="tns:userAuth" />
+  <wsdl:message name="IDbService_UserAuth_InputMessage">
+    <wsdl:part name="parameters" element="tns:UserAuth" />
   </wsdl:message>
-  <wsdl:message name="IDbService_userAuth_OutputMessage">
-    <wsdl:part name="parameters" element="tns:userAuthResponse" />
+  <wsdl:message name="IDbService_UserAuth_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UserAuthResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDbService_CreateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateUser" />
+  </wsdl:message>
+  <wsdl:message name="IDbService_CreateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDbService_DeleteUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUser" />
+  </wsdl:message>
+  <wsdl:message name="IDbService_DeleteUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserResponse" />
   </wsdl:message>
   <wsdl:portType name="IDbService">
-    <wsdl:operation name="adminAuth">
-      <wsdl:input wsaw:Action="http://tempuri.org/IDbService/adminAuth" message="tns:IDbService_adminAuth_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IDbService/adminAuthResponse" message="tns:IDbService_adminAuth_OutputMessage" />
+    <wsdl:operation name="AdminAuth">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDbService/AdminAuth" message="tns:IDbService_AdminAuth_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDbService/AdminAuthResponse" message="tns:IDbService_AdminAuth_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="userAuth">
-      <wsdl:input wsaw:Action="http://tempuri.org/IDbService/userAuth" message="tns:IDbService_userAuth_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IDbService/userAuthResponse" message="tns:IDbService_userAuth_OutputMessage" />
+    <wsdl:operation name="UserAuth">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDbService/UserAuth" message="tns:IDbService_UserAuth_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDbService/UserAuthResponse" message="tns:IDbService_UserAuth_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDbService/CreateUser" message="tns:IDbService_CreateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDbService/CreateUserResponse" message="tns:IDbService_CreateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDbService/DeleteUser" message="tns:IDbService_DeleteUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDbService/DeleteUserResponse" message="tns:IDbService_DeleteUser_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IDbService" type="tns:IDbService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="adminAuth">
-      <soap:operation soapAction="http://tempuri.org/IDbService/adminAuth" style="document" />
+    <wsdl:operation name="AdminAuth">
+      <soap:operation soapAction="http://tempuri.org/IDbService/AdminAuth" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -39,8 +59,26 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="userAuth">
-      <soap:operation soapAction="http://tempuri.org/IDbService/userAuth" style="document" />
+    <wsdl:operation name="UserAuth">
+      <soap:operation soapAction="http://tempuri.org/IDbService/UserAuth" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateUser">
+      <soap:operation soapAction="http://tempuri.org/IDbService/CreateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <soap:operation soapAction="http://tempuri.org/IDbService/DeleteUser" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -16,6 +16,8 @@ namespace DbService
         bool UserAuth(string username, string password);
         [OperationContract]
         bool CreateUser(string name, string email, string password);
+        [OperationContract]
+        bool DeleteUser(string email);
 
     }
 }

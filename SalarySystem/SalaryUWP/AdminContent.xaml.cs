@@ -18,15 +18,23 @@ using Windows.UI.Xaml.Navigation;
 
 namespace SalaryUWP
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class AdminContent : Page
     {
         public AdminContent()
         {
             this.InitializeComponent();
             dateTextBlock.Text = DateTime.Today.ToString("dddd, dd MMMM yyyy");
+        }
+
+        private void AddUser(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(AddUser));
+        }
+
+        private void DeleteUser(object sender, RoutedEventArgs e)
+        {
+
+            Frame.Navigate(typeof(DeleteUser));
         }
     }
 }

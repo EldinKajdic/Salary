@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:element name="adminAuth">
+  <xs:element name="AdminAuth">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
@@ -8,14 +8,14 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="adminAuthResponse">
+  <xs:element name="AdminAuthResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="adminAuthResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="AdminAuthResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="userAuth">
+  <xs:element name="UserAuth">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
@@ -23,10 +23,40 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="userAuthResponse">
+  <xs:element name="UserAuthResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="userAuthResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="UserAuthResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CreateUserResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteUserResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

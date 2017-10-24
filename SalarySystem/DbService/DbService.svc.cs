@@ -25,6 +25,21 @@ namespace DbService
             return false;
         }
 
+        public bool UserAuth(string username, string password)
+        {
+            var userQuery = (from users in db.userinfo_db
+                             where users.email == username &&
+                             users.password == password
+                             select users);
+
+            if (userQuery.SingleOrDefault() != null)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
         public bool CreateUser(string name, string email, string password)
         {
             DateTime createdAt = new DateTime();
@@ -54,20 +69,23 @@ namespace DbService
             }
         }
 
-        public bool UserAuth(string username, string password)
+        public bool DeleteUser(string email)
         {
             var userQuery = (from users in db.userinfo_db
-                             where users.email == username &&
-                             users.password == password
+                             where users.email == email
                              select users);
 
-            if(userQuery.SingleOrDefault() != null)
+            if (userQuery.SingleOrDefault() != null)
             {
+                db.userinfo_db.RemoveRange(userQuery);
+                db.SaveChanges();
                 return true;
             }
 
-            return false;
+            else
+            {
+                return false;
+            }
         }
-
     }
 }

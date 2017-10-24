@@ -1,0 +1,28 @@
+﻿<Page
+    x:Class="SalaryUWP.AddUser"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SalaryUWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <TextBlock Name="dateTextBlock" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="20, 20, 20, 20" Text="dateTextBlock" FontSize="16"/>
+        <StackPanel>
+            <TextBlock Margin="20, 50, 20, 20" Text="Create a new user" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="20"/>
+            <TextBox Name="userNameTb" PlaceholderText="Name" Margin="20, 0, 20, 0" MaxWidth="600"/>
+            <TextBox Name="userEmailTb" PlaceholderText="Email" Margin="20, 10, 20, 0" MaxWidth="600"/>
+            <PasswordBox Name="userPasswordTb" PlaceholderText="Password" Margin="20, 10, 20, 0" MaxWidth="600"/>
+            <Button Content="Save" VerticalAlignment="Top" Margin="0, 22, 0, 0" Width="80" HorizontalAlignment="Center" Click="AddUserClick"/>
+            <TextBlock Name="createStatusText" Text="" VerticalAlignment="Top" HorizontalAlignment="Center"
+                   Margin="0, 20, 0, 0"/>
+            <TextBlock Name="createStatusTextTwo" Text="" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="12"/>
+            <ProgressBar x:Name="LoadingBar" Visibility="Collapsed" IsEnabled="False" IsIndeterminate="true" Height="4" HorizontalAlignment="Stretch"/>
+        </StackPanel>
+        <CommandBar VerticalAlignment="Bottom">
+            <AppBarButton Icon="Add" Label="Add" Click="AddUserClick"/>
+            <AppBarButton Icon="Cancel" Label="Cancel" Click="Cancel"/>
+        </CommandBar>
+    </Grid>
+</Page>

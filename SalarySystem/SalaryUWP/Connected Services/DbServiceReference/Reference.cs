@@ -18,11 +18,17 @@ namespace SalaryUWP.DbServiceReference {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="DbServiceReference.IDbService")]
     public interface IDbService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDbService/adminAuth", ReplyAction="http://tempuri.org/IDbService/adminAuthResponse")]
-        System.Threading.Tasks.Task<bool> adminAuthAsync(string username, string password);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDbService/AdminAuth", ReplyAction="http://tempuri.org/IDbService/AdminAuthResponse")]
+        System.Threading.Tasks.Task<bool> AdminAuthAsync(string username, string password);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDbService/userAuth", ReplyAction="http://tempuri.org/IDbService/userAuthResponse")]
-        System.Threading.Tasks.Task<bool> userAuthAsync(string username, string password);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDbService/UserAuth", ReplyAction="http://tempuri.org/IDbService/UserAuthResponse")]
+        System.Threading.Tasks.Task<bool> UserAuthAsync(string username, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDbService/CreateUser", ReplyAction="http://tempuri.org/IDbService/CreateUserResponse")]
+        System.Threading.Tasks.Task<bool> CreateUserAsync(string name, string email, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDbService/DeleteUser", ReplyAction="http://tempuri.org/IDbService/DeleteUserResponse")]
+        System.Threading.Tasks.Task<bool> DeleteUserAsync(string email);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -68,12 +74,20 @@ namespace SalaryUWP.DbServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public System.Threading.Tasks.Task<bool> adminAuthAsync(string username, string password) {
-            return base.Channel.adminAuthAsync(username, password);
+        public System.Threading.Tasks.Task<bool> AdminAuthAsync(string username, string password) {
+            return base.Channel.AdminAuthAsync(username, password);
         }
         
-        public System.Threading.Tasks.Task<bool> userAuthAsync(string username, string password) {
-            return base.Channel.userAuthAsync(username, password);
+        public System.Threading.Tasks.Task<bool> UserAuthAsync(string username, string password) {
+            return base.Channel.UserAuthAsync(username, password);
+        }
+        
+        public System.Threading.Tasks.Task<bool> CreateUserAsync(string name, string email, string password) {
+            return base.Channel.CreateUserAsync(name, email, password);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DeleteUserAsync(string email) {
+            return base.Channel.DeleteUserAsync(email);
         }
         
         public virtual System.Threading.Tasks.Task OpenAsync() {

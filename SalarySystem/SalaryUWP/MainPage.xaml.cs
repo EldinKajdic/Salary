@@ -35,28 +35,38 @@ namespace SalaryUWP
 
         private async void Connect_Click(object sender, RoutedEventArgs e)
         {
-            DbServiceReference.DbServiceClient dbServiceReference = new DbServiceReference.DbServiceClient();
-
-            LoadingBar.IsEnabled = true;
-            LoadingBar.Visibility = Visibility.Visible;
-
-            loginStatusText.Text = "You are logging in...";
-
             string usernameInput = usernameTxtBox.Text;
             string passwordInput = passwordTxtBox.Password.ToString();
-            bool loginStatus = await dbServiceReference.adminAuthAsync(usernameInput, passwordInput);
-            LoadingBar.IsEnabled = false;
-            LoadingBar.Visibility = Visibility.Collapsed;
 
-            if (loginStatus == true)
+            if (usernameInput.Equals("") || passwordInput.Equals(""))
             {
-                loginStatusText.Text = "You have successfully logged in!";
-                Frame.Navigate(typeof(AdminContent));
+                loginStatusText.Text = "Please enter information in all fields.";
+                loginStatusText.FontWeight = FontWeights.Bold;
+
             }
             else
             {
-                loginStatusText.Text = " The account or password is incorrect.\nAre you sure you entered the right one?";
-                loginStatusText.FontWeight = FontWeights.Bold;
+                DbServiceReference.DbServiceClient dbServiceReference = new DbServiceReference.DbServiceClient();
+
+                LoadingBar.IsEnabled = true;
+                LoadingBar.Visibility = Visibility.Visible;
+
+                loginStatusText.Text = "You are logging in...";
+
+                bool loginStatus = await dbServiceReference.AdminAuthAsync(usernameInput, passwordInput);
+                LoadingBar.IsEnabled = false;
+                LoadingBar.Visibility = Visibility.Collapsed;
+
+                if (loginStatus == true)
+                {
+                    loginStatusText.Text = "You have successfully logged in!";
+                    Frame.Navigate(typeof(AdminContent));
+                }
+                else
+                {
+                    loginStatusText.Text = " The account or password is incorrect.\nAre you sure you entered the right one?";
+                    loginStatusText.FontWeight = FontWeights.Bold;
+                }
             }
         }
     }
