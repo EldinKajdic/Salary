@@ -11,9 +11,11 @@ namespace DbService
     public interface IDbService
     {
         [OperationContract]
-        bool adminAuth(string username, string password);
+        bool AdminAuth(string username, string password);
         [OperationContract]
-        bool userAuth(string username, string password);
+        bool UserAuth(string username, string password);
+        [OperationContract]
+        bool CreateUser(string name, string email, string password);
 
     }
 }
