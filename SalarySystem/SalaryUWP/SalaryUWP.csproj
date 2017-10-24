@@ -129,6 +129,7 @@
     <None Include="SalaryUWP_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\salariie.jpg" />
     <Content Include="Assets\salarylogo.png" />
     <None Include="Connected Services\DbServiceReference\DbService.disco" />
     <None Include="Connected Services\DbServiceReference\configuration91.svcinfo" />
@@ -137,6 +138,7 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="Assets\salaryy.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

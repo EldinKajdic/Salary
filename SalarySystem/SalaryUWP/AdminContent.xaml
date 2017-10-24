@@ -9,12 +9,13 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <TextBlock Name="dateTextBlock" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="20, 20, 20, 20" Text="dateTextBlock" FontSize="16"/>
-        <TextBlock Margin="20, 50, 20, 20" Text="Welcome to the Admin Panel!" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="20"/>
+        <TextBlock Margin="20, 50, 20, 0" Text="Welcome to the Admin Panel!" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="20"/>
         <Viewbox Stretch="Uniform" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="20, 78, 20, 20" MaxWidth="550" >
             <TextBlock FontStyle="Italic" TextWrapping="Wrap" TextAlignment="Center" Width="550">
                 In the admin panel, you can can choose to create new accounts, delete or update existing accounts as well as other things!
             </TextBlock>
         </Viewbox>
+        <Image VerticalAlignment="Bottom" HorizontalAlignment="Center" Source="Assets/salaryy.png" MaxHeight="250" Margin="0,0,0,45"/>
         <CommandBar VerticalAlignment="Bottom">
             <AppBarButton Icon="Delete" Label="Delete user" Click="DeleteUser"/>
             <AppBarButton Icon="AddFriend" Label="Add user" Click="AddUser"/>
