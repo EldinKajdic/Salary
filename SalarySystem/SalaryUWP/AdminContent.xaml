@@ -13,7 +13,7 @@
         <TextBlock Margin="20, 50, 20, 0" Text="Welcome to the Admin Panel!" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="20"/>
         <Viewbox Stretch="Uniform" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="20, 78, 20, 20" MaxWidth="550" >
             <TextBlock FontStyle="Italic" TextWrapping="Wrap" TextAlignment="Center" Width="550">
-                <Run Text="In the admin panel, you can can choose to create new accounts, delete or update existing accounts as well as other things!"/>
+                <Run Text="In the admin panel, you can can choose to create new accounts, delete or update existing accounts as well as other things."/>
             </TextBlock>
         </Viewbox>
         <Image VerticalAlignment="Bottom" HorizontalAlignment="Center" Source="Assets/salaryy.png" MaxHeight="250" Margin="0,0,0,45"/>

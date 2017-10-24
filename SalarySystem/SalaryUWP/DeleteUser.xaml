@@ -16,7 +16,7 @@
             <TextBlock Name="deleteStatusText" Text="" VerticalAlignment="Top" HorizontalAlignment="Center"
                    Margin="0, 20, 0, 0"/>
             <TextBlock Name="deleteStatusTextTwo" Text="" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="13"/>
-            <TextBlock Name="deleteStatusTextThree" Margin="0, 15, 0, 0" Text="" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="12"/>
+            <TextBlock Name="deleteStatusTextThree" FontStyle="Italic" Margin="0, 15, 0, 0" Text="" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="12"/>
             <ProgressBar x:Name="LoadingBar" Visibility="Collapsed" IsEnabled="False" IsIndeterminate="true" Height="4" HorizontalAlignment="Stretch"/>
         </StackPanel>
         <CommandBar VerticalAlignment="Bottom">
