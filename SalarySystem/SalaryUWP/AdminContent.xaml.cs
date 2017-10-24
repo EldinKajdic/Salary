@@ -33,8 +33,12 @@ namespace SalaryUWP
 
         private void DeleteUser(object sender, RoutedEventArgs e)
         {
-
             Frame.Navigate(typeof(DeleteUser));
+        }
+
+        private void UpdateUser(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(UpdateUser));
         }
     }
 }

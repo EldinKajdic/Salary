@@ -29,6 +29,9 @@ namespace SalaryUWP.DbServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDbService/DeleteUser", ReplyAction="http://tempuri.org/IDbService/DeleteUserResponse")]
         System.Threading.Tasks.Task<bool> DeleteUserAsync(string email);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDbService/UpdatePassword", ReplyAction="http://tempuri.org/IDbService/UpdatePasswordResponse")]
+        System.Threading.Tasks.Task<bool> UpdatePasswordAsync(string email, string password);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -88,6 +91,10 @@ namespace SalaryUWP.DbServiceReference {
         
         public System.Threading.Tasks.Task<bool> DeleteUserAsync(string email) {
             return base.Channel.DeleteUserAsync(email);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UpdatePasswordAsync(string email, string password) {
+            return base.Channel.UpdatePasswordAsync(email, password);
         }
         
         public virtual System.Threading.Tasks.Task OpenAsync() {

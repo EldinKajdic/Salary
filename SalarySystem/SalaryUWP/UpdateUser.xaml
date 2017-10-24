@@ -1,0 +1,29 @@
+﻿<Page
+    x:Class="SalaryUWP.UpdateUser"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SalaryUWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <TextBlock Name="dateTextBlock" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="20, 20, 20, 20" Text="dateTextBlock" FontSize="16"/>
+        <StackPanel>
+            <TextBlock Margin="20, 50, 20, 20" Text="Change user password" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="20"/>
+            <TextBox Name="userEmailTb" PlaceholderText="User email" Margin="20, 0, 20, 0" MaxWidth="600"/>
+            <PasswordBox Name="userPasswordTb" PlaceholderText="New password" Margin="20, 10, 20, 0" MaxWidth="600"/>
+            <PasswordBox Name="userConfirmPasswordTb" PlaceholderText="Confirm password" Margin="20, 10, 20, 0" MaxWidth="600"/>
+            <Button Content="Save" VerticalAlignment="Top" Margin="0, 22, 0, 0" Width="80" HorizontalAlignment="Center" Click="UpdateUserClick"/>
+            <TextBlock Name="updateStatusText" Text="" VerticalAlignment="Top" HorizontalAlignment="Center"
+                   Margin="0, 20, 0, 0"/>
+            <TextBlock Name="updateStatusTextTwo" Text="" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="13"/>
+            <TextBlock Name="updateStatusTextThree" FontStyle="Italic" Margin="0, 15, 0, 0" Text="" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="12"/>
+            <ProgressBar x:Name="LoadingBar" Visibility="Collapsed" IsEnabled="False" IsIndeterminate="true" Height="4" HorizontalAlignment="Stretch"/>
+        </StackPanel>
+        <CommandBar VerticalAlignment="Bottom">
+            <AppBarButton Icon="Save" Label="Update user" Click="UpdateUserClick"/>
+            <AppBarButton Icon="Cancel" Label="Cancel" Click="Cancel"/>
+        </CommandBar>
+    </Grid>
+</Page>

@@ -1,22 +1,24 @@
 ﻿<Page
-    x:Class="SalaryUWP.AdminContent"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:SalaryUWP"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Charts="using:DevExpress.UI.Xaml.Charts"
+    x:Class="SalaryUWP.AdminContent"
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock Name="dateTextBlock" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="20, 20, 20, 20" Text="dateTextBlock" FontSize="16"/>
+        <TextBlock x:Name="dateTextBlock" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="20, 20, 20, 20" Text="dateTextBlock" FontSize="16"/>
         <TextBlock Margin="20, 50, 20, 0" Text="Welcome to the Admin Panel!" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="20"/>
         <Viewbox Stretch="Uniform" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="20, 78, 20, 20" MaxWidth="550" >
             <TextBlock FontStyle="Italic" TextWrapping="Wrap" TextAlignment="Center" Width="550">
-                In the admin panel, you can can choose to create new accounts, delete or update existing accounts as well as other things!
+                <Run Text="In the admin panel, you can can choose to create new accounts, delete or update existing accounts as well as other things!"/>
             </TextBlock>
         </Viewbox>
         <Image VerticalAlignment="Bottom" HorizontalAlignment="Center" Source="Assets/salaryy.png" MaxHeight="250" Margin="0,0,0,45"/>
         <CommandBar VerticalAlignment="Bottom">
+            <AppBarButton Icon="Refresh" Label="Update" Click="UpdateUser"/>
             <AppBarButton Icon="Delete" Label="Delete user" Click="DeleteUser"/>
             <AppBarButton Icon="AddFriend" Label="Add user" Click="AddUser"/>
         </CommandBar>

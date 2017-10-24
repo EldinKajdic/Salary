@@ -18,6 +18,8 @@ namespace DbService
         bool CreateUser(string name, string email, string password);
         [OperationContract]
         bool DeleteUser(string email);
+        [OperationContract]
+        bool UpdatePassword(string email, string password);
 
     }
 }

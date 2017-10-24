@@ -113,6 +113,9 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UpdateUser.xaml.cs">
+      <DependentUpon>UpdateUser.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -129,7 +132,6 @@
     <None Include="SalaryUWP_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\salariie.jpg" />
     <Content Include="Assets\salarylogo.png" />
     <None Include="Connected Services\DbServiceReference\DbService.disco" />
     <None Include="Connected Services\DbServiceReference\configuration91.svcinfo" />
@@ -169,6 +171,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="UpdateUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="FontAwesome.WPF">
@@ -183,6 +189,14 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\DbServiceReference\" />
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="DevExpress.Core, version=16.2">
+      <Name>DevExpress.Core</Name>
+    </SDKReference>
+    <SDKReference Include="DevExpress.Visualization, Version=16.2">
+      <Name>DevExpress.Visualization</Name>
+    </SDKReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

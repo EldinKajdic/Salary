@@ -87,5 +87,25 @@ namespace DbService
                 return false;
             }
         }
+
+        public bool UpdatePassword(string email, string password)
+        {
+            var updateQuery = (from users in db.userinfo_db
+                             where users.email == email
+                             select users);
+
+            if (updateQuery.SingleOrDefault() != null)
+            {
+                foreach (var user in updateQuery)
+                {
+                    user.password = password;
+                }
+
+                db.SaveChanges();
+                return true;
+            }
+
+            return false;
+        }
     }
 }
