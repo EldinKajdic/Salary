@@ -1,12 +1,12 @@
 ﻿@model SalaryWeb.Models.salary_db
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Salary details";
 }
 
-<h2>Details</h2>
 
-<div>
+<div class="container">
+    <h2>Details</h2>
     <h4>Salary details</h4>
     <hr />
     <dl class="dl-horizontal">
@@ -43,8 +43,9 @@
         </dd>
 
     </dl>
+
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+        @Html.ActionLink("Go back", "Index")
+    </p>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
-    @Html.ActionLink("Go back", "Index")
-</p>

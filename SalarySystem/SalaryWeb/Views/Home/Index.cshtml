@@ -1,30 +1,186 @@
 ﻿@{
     ViewBag.Title = "Welcome";
 }
+<div class="carousel fade-carousel slide" data-ride="carousel" data-interval="4000" id="bs-carousel">
+    <!-- Overlay -->
+    <div class="overlay"></div>
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#bs-carousel" data-slide-to="0" class="active"></li>
+        <li data-target="#bs-carousel" data-slide-to="1"></li>
+        <li data-target="#bs-carousel" data-slide-to="2"></li>
+    </ol>
 
-<div class="jumbotron">
-    <h1>Salary System</h1>
-    <p class="lead">The salary system was built to give you the possibility to compare your salary to others.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+        <div class="item slides active">
+            <div class="slide-1"></div>
+            <div class="hero">
+                <hgroup>
+                    <h1>Salary System</h1>
+                    <h3>Find out if you are being paid enough</h3>
+                </hgroup>
+                <button class="btn btn-hero btn-lg" role="button">See all features</button>
+            </div>
+        </div>
+        <div class="item slides">
+            <div class="slide-2"></div>
+            <div class="hero">
+                <hgroup>
+                    <h1>Average up</h1>
+                    <h3>Calculate your average earnings</h3>
+                </hgroup>
+                <button class="btn btn-hero btn-lg" role="button">Get started</button>
+            </div>
+        </div>
+        <div class="item slides">
+            <div class="slide-3"></div>
+            <div class="hero">
+                <hgroup>
+                    <h1>Become informed</h1>
+                    <h3>Learn about taxes, contracts and more</h3>
+                </hgroup>
+                <button class="btn btn-hero btn-lg" role="button">Become informed</button>
+            </div>
+        </div>
+    </div>
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Compare salaries</h2>
-        <p>
-           Salary System gives you the chance to compare your salary to your friends, your coworker or someone across the worlds salary!
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="text-center">
+                <h2>Are you making enough?</h2>
+            </div>
+            <div class="column-chart">
+                <div class="legend legend-left hidden-xs">
+                    <h3 class="legend-title">SEK</h3>
+                </div>
+
+                <div class="legend legend-right hidden-xs">
+                    <div class="item">
+                        <h4>40000:-</h4>
+                    </div>
+
+                    <div class="item">
+                        <h4>35000:-</h4>
+                    </div>
+
+                    <div class="item">
+                        <h4>30000:-</h4>
+                    </div>
+                    <div class="item">
+                        <h4>25000:-</h4>
+                    </div>
+                </div>
+
+                <div class="chart clearfix">
+
+                    <div class="item">
+                        <div class="bar">
+                            <span class="percent">29320:-</span>
+
+                            <div class="item-progress" data-percent="45">
+                                <span class="title">Painter</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="bar">
+                            <span class="percent">38920:-</span>
+
+                            <div class="item-progress" data-percent="94">
+                                <span class="title">System architect</span>
+                            </div>
+                        </div>
+                        <!-- //.bar -->
+                    </div>
+                    <!-- //.item -->
+
+                    <div class="item">
+                        <div class="bar">
+                            <span class="percent">32700:-</span>
+
+                            <div class="item-progress" data-percent="60">
+                                <span class="title">Teacher</span>
+                            </div>
+                            <!-- //.item-progress -->
+                        </div>
+                        <!-- //.bar -->
+                    </div>
+
+
+                    <div class="item">
+                        <div class="bar">
+                            <span class="percent">36180:-</span>
+
+                            <div class="item-progress" data-percent="85">
+                                <span class="title">System developer</span>
+                            </div>
+                            <!-- //.item-progress -->
+                        </div>
+                        <!-- //.bar -->
+                    </div>
+                    <!-- //.item -->
+
+
+                    <div class="item">
+                        <div class="bar">
+                            <span class="percent">35000:-</span>
+
+                            <div class="item-progress" data-percent="75">
+                                <span class="title">Engineer</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- //.item -->
+                </div>
+                <!-- //.chart -->
+            </div>
+            <!-- //.column-chart -->
+        </div>
+        <!-- //.col-md-6 -->
     </div>
-    <div class="col-md-4">
-        <h2>Calculate your average</h2>
-        <p>With our tools, you can calculate your average salary and compare it to other workers salary in the same industry.
-        Are you getting more or less paid than others?</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Find out more</h2>
-        <p>Check out statistics, read about contracts, taxes, trade unions and more. Make yourself informed about the important things in life!</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
+    <!-- //.row -->
+</div>
+
+<div class="typeWriter" style="margin-top: 50px;">
+    <h1>
+        <a class="typewrite" data-period="2000" data-type='[ "Hmm...", "I wonder if my salary is enough..", "What do others in my field make?",
+           "Is the salary better in another country?" ]'>
+            <span class="wrap"></span>
+        </a>
+    </h1>
+</div>
+
+
+
+
+<div class="container" style="padding-bottom: 150px; padding-top: 80px;">
+
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Compare salaries</h2>
+            <p>
+                Salary System gives you the chance to compare your salary to your friends, your coworker or someone across the worlds salary!
+            </p>
+            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Average pay</h2>
+            <p>
+                With our tools, you can calculate your average salary and compare it to other workers salary in the same industry.
+            </p>
+            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Become informed</h2>
+            <p>Check out statistics, read about contracts, taxes, trade unions and more. Make yourself informed about the important things in life!</p>
+            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        </div>
+    </div><br />
 </div>

@@ -4,50 +4,47 @@
     ViewBag.Title = "Overview";
 }
 
-<h2>Salary table</h2>
+<div class="container">
+    <h2>Salary table</h2>
 
-<p>
-    @Html.ActionLink("Add new salary", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            Currency
-        </th>
-        <th>
-            Salary added
-        </th>
-        <th>
-            Amount
-        </th>
-        <th>
-            Name
-        </th>
-        <th>
-            Manage
-        </th>
-    </tr>
+    <p>
+        @Html.ActionLink("Add new salary", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                Salary added
+            </th>
+            <th>
+                Amount
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Manage
+            </th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.currency)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.created_at)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.salaryAmount):-
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.userinfo_db.name)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
-        </td>
-    </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.created_at)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.salaryAmount) @Html.DisplayFor(modelItem => item.currency):-
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.userinfo_db.name)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                </td>
+            </tr>
+        }
 
-</table>
+    </table>
+</div>

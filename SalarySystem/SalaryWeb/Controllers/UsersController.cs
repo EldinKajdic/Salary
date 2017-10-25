@@ -50,6 +50,10 @@ namespace SalaryWeb.Controllers
         {
             if (ModelState.IsValid)
             {
+                DateTime createdAt = new DateTime();
+                createdAt = DateTime.Now;
+                userinfo_db.created_at = createdAt;
+
                 db.userinfo_db.Add(userinfo_db);
                 db.SaveChanges();
                 return RedirectToAction("Index");

@@ -4,9 +4,9 @@
     ViewBag.Title = "Account details";
 }
 
-<h2>Account details</h2>
+<div class="container">
+    <h2>Account details</h2>
 
-<div>
     <h4>Account</h4>
     <hr />
     <dl class="dl-horizontal">
@@ -51,8 +51,10 @@
         </dd>
 
     </dl>
+
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+        @Html.ActionLink("Go back", "Index")
+    </p>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
-    @Html.ActionLink("Go back", "Index")
-</p>
+
