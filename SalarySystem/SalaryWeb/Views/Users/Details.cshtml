@@ -1,0 +1,58 @@
+﻿@model SalaryWeb.Models.userinfo_db
+
+@{
+    ViewBag.Title = "Account details";
+}
+
+<h2>Account details</h2>
+
+<div>
+    <h4>Account</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            Email
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            Union
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.C_union)
+        </dd>
+
+        <dt>
+            Current job
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.current_job)
+        </dd>
+
+        <dt>
+            Account created
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.created_at)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Go back", "Index")
+</p>

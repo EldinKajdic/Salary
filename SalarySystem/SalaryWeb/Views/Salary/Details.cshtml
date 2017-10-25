@@ -1,0 +1,50 @@
+﻿@model SalaryWeb.Models.salary_db
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Salary details</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Currency
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.currency)
+        </dd>
+
+        <dt>
+            Salary added
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.created_at)
+        </dd>
+
+        <dt>
+            Amount
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.salaryAmount)
+        </dd>
+
+        <dt>
+            Name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.userinfo_db.name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Go back", "Index")
+</p>

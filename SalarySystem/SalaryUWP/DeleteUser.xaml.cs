@@ -46,7 +46,6 @@ namespace SalaryUWP
 
                 DbServiceReference.DbServiceClient dbServiceReference = new DbServiceReference.DbServiceClient();
 
-
                 bool checkIfDeleted = await dbServiceReference.DeleteUserAsync(email);
                 LoadingBar.IsEnabled = false;
                 LoadingBar.Visibility = Visibility.Collapsed;
