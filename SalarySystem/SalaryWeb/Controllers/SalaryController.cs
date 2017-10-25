@@ -14,14 +14,14 @@ namespace SalaryWeb.Controllers
     {
         private UsersDbEntities db = new UsersDbEntities();
 
-        // GET: Salary
+        [Authorize]
         public ActionResult Index()
         {
             var salary_db = db.salary_db.Include(s => s.userinfo_db);
             return View(salary_db.ToList());
         }
 
-        // GET: Salary/Details/5
+        [Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,16 +36,14 @@ namespace SalaryWeb.Controllers
             return View(salary_db);
         }
 
-        // GET: Salary/Create
+        [Authorize]
         public ActionResult Create()
         {
             ViewBag.salary_id = new SelectList(db.userinfo_db, "id", "name");
             return View();
         }
 
-        // POST: Salary/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "id,currency,salary_id,salaryAmount")] salary_db salary_db)
@@ -64,7 +62,7 @@ namespace SalaryWeb.Controllers
             return View(salary_db);
         }
 
-        // GET: Salary/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -80,9 +78,7 @@ namespace SalaryWeb.Controllers
             return View(salary_db);
         }
 
-        // POST: Salary/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "id,currency,salary_id,salaryAmount")] salary_db salary_db)
@@ -98,7 +94,7 @@ namespace SalaryWeb.Controllers
             return View(salary_db);
         }
 
-        // GET: Salary/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -113,7 +109,7 @@ namespace SalaryWeb.Controllers
             return View(salary_db);
         }
 
-        // POST: Salary/Delete/5
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -132,5 +128,15 @@ namespace SalaryWeb.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult LogOut()
+        {
+            ViewBag.LogOut = "";
+            Session.Abandon();
+            Session.Clear();
+            System.Web.Security.FormsAuthentication.SignOut();
+            return RedirectToAction("Index");
+        }
+
     }
 }

@@ -189,8 +189,12 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\carouselslide1.jpg" />
+    <Content Include="Images\carouselslide2.jpg" />
+    <Content Include="Images\carouselslide3.jpg" />
     <Content Include="Images\favicon.ico" />
-    <Content Include="Images\lake.jpg" />
+    <Content Include="Images\loginpic.png" />
+    <Content Include="Images\registerpic.png" />
     <Content Include="Images\salarylogo.png" />
     <Content Include="Images\salaryy.png" />
     <Content Include="mail\contact_me.php" />
@@ -264,6 +268,7 @@
     <Content Include="Views\Salary\Details.cshtml" />
     <Content Include="Views\Salary\Edit.cshtml" />
     <Content Include="Views\Salary\Index.cshtml" />
+    <Content Include="Views\Users\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

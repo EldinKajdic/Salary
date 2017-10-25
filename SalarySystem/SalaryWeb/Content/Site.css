@@ -328,15 +328,15 @@ footer {
 }
 
 .fade-carousel .slides .slide-1 {
-    background-image: url(https://ununsplash.imgix.net/photo-1416339134316-0e91dc9ded92?q=75&fm=jpg&s=883a422e10fc4149893984019f63c818);
+    background-image: url('../Images/carouselslide1.jpg');
 }
 
 .fade-carousel .slides .slide-2 {
-    background-image: url(https://ununsplash.imgix.net/photo-1416339684178-3a239570f315?q=75&fm=jpg&s=c39d9a3bf66d6566b9608a9f1f3765af);
+    background-image: url('../Images/carouselslide2.jpg');
 }
 
 .fade-carousel .slides .slide-3 {
-    background-image: url(https://ununsplash.imgix.net/photo-1416339276121-ba1dfa199912?q=75&fm=jpg&s=9bf9f2ef5be5cb5eee5255e7765cb327);
+    background-image: url('../Images/carouselslide3.jpg');
 }
 
 /********************************/
@@ -354,6 +354,8 @@ footer {
     }
 }
 
+/* Typewriter settings*/
+
 .typeWriter {
     background-color: #48c3af;
     text-align: center;
@@ -363,10 +365,143 @@ footer {
     text-decoration: none;
 }
 
+
 .typeWriter > a {
     color: #fff;
     text-decoration: none;
 }
 
+
+/* Login page settings*/
+
+.login-container {
+    position: relative;
+    width: 300px;
+    margin: 80px auto;
+    padding: 20px 40px 40px;
+    text-align: center;
+    background: #fff;
+    border: 1px solid #ccc;
+}
+
+#output {
+    position: absolute;
+    width: 300px;
+    top: -75px;
+    left: 0;
+    color: #fff;
+}
+
+    #output.alert-success {
+        background: rgb(25, 204, 25);
+    }
+
+    #output.alert-danger {
+        background: rgb(228, 105, 105);
+    }
+
+
+.login-container::before, .login-container::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 3.5px;
+    left: 0;
+    background: #fff;
+    z-index: -1;
+    -webkit-transform: rotateZ(4deg);
+    -moz-transform: rotateZ(4deg);
+    -ms-transform: rotateZ(4deg);
+    border: 1px solid #ccc;
+}
+
+.login-container::after {
+    top: 5px;
+    z-index: -2;
+    -webkit-transform: rotateZ(-2deg);
+    -moz-transform: rotateZ(-2deg);
+    -ms-transform: rotateZ(-2deg);
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    margin: 10px auto 30px;
+    border-radius: 100%;
+    border: 2px solid #aaa;
+    background-size: cover;
+}
+
+.form-box input {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    height: 40px;
+    border: 1px solid #ccc;
+    background: #fafafa;
+    transition: 0.2s ease-in-out;
+}
+
+    .form-box input:focus {
+        outline: 0;
+        background: #eee;
+    }
+
+    .form-box input[type="text"] {
+        border-radius: 5px 5px 0 0;
+    }
+
+    .form-box input[type="password"] {
+        border-radius: 0 0 5px 5px;
+        border-top: 0;
+    }
+
+.form-box button.login {
+    margin-top: 15px;
+    padding: 10px 20px;
+}
+
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(20px);
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(20px);
+        -ms-transform: translateY(20px);
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+.fadeInUp {
+    -webkit-animation-name: fadeInUp;
+    animation-name: fadeInUp;
+}
 
 

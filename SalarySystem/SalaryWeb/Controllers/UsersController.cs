@@ -14,13 +14,13 @@ namespace SalaryWeb.Controllers
     {
         private UsersDbEntities db = new UsersDbEntities();
 
-        // GET: Users
+        [Authorize]
         public ActionResult Index()
         {
             return View(db.userinfo_db.ToList());
         }
 
-        // GET: Users/Details/5
+        [Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -35,34 +35,154 @@ namespace SalaryWeb.Controllers
             return View(userinfo_db);
         }
 
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(userinfo_db User)
+        {
+
+            if (User.email == null || User.password == null)
+            {
+                ModelState.AddModelError("LoginError", "Enter information in all fields.");
+            }
+            else
+            {
+                if (User.email.Contains("@"))
+                {
+
+
+                    if (ModelState.IsValid)
+                    {
+                        var user = (from users in db.userinfo_db
+                                    where users.email == User.email.ToUpper()
+                                    && users.password == User.password
+                                    select new
+                                    {
+                                        users.id,
+                                        users.email
+                                    }).ToList();
+
+                        if (user.FirstOrDefault() != null)
+                        {
+                            bool trueUser = false;
+                            trueUser = validateLogin(User.email, User.password);
+
+                            if (trueUser == true)
+                            {
+
+                                Session["id"] = user.FirstOrDefault().id;
+                                var sessionID = (int)Session["id"];
+                                Session["email"] = user.FirstOrDefault().email;
+                                ViewBag.SessionEmail = Session["email"];
+                                ViewBag.LogOut = "Sign out";
+
+                                System.Web.Security.FormsAuthentication.RedirectFromLoginPage(User.email, false);
+
+                            }
+
+                            return RedirectToAction("Index", "Users");
+                        }
+                        else
+                        {
+                            ModelState.AddModelError("LoginError", "The email or password you entered was not correct.");
+                            ViewBag.SessionEmail = "";
+                        }
+                    }
+
+                }
+                else
+                {
+                    ModelState.AddModelError("LoginError", "This is not a valid email.");
+                    ViewBag.SessionEmail = "";
+                }
+
+            }
+
+
+            return View(User);
+        }
+
+        public ActionResult LogOut()
+        {
+            ViewBag.LogOut = "";
+            Session.Abandon();
+            Session.Clear();
+            System.Web.Security.FormsAuthentication.SignOut();
+            return RedirectToAction("Index");
+        }
+
+        private bool validateLogin(string username, string password)
+        {
+            var user = from users in db.userinfo_db
+                       where users.email.ToUpper() == username.ToUpper()
+                       && users.password == password
+                       select users;
+
+            if (user.Count() == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         // GET: Users/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Users/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "id,name,email,password,C_union,current_job")] userinfo_db userinfo_db)
         {
-            if (ModelState.IsValid)
+            if (userinfo_db.name == null || userinfo_db.email == null || userinfo_db.password == null)
             {
-                DateTime createdAt = new DateTime();
-                createdAt = DateTime.Now;
-                userinfo_db.created_at = createdAt;
+                ModelState.AddModelError("RegisterError", "Enter information in all fields.");
+            }
 
-                db.userinfo_db.Add(userinfo_db);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+            else
+            {
+                if (userinfo_db.email.Contains("@"))
+                {
+                    if (userinfo_db.password.Length >= 6)
+                    {
+                        if (ModelState.IsValid)
+                        {
+                            DateTime createdAt = new DateTime();
+                            createdAt = DateTime.Now;
+                            userinfo_db.created_at = createdAt;
+                            userinfo_db.current_job = "No job presented";
+                            userinfo_db.C_union = "No union presented";
+
+                            db.userinfo_db.Add(userinfo_db);
+                            db.SaveChanges();
+                            return RedirectToAction("Index");
+                        }
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("RegisterError", "The password must have atleast 6 characters.");
+                    }
+
+                }
+                else
+                {
+                    ModelState.AddModelError("RegisterError", "This is not a valid email.");
+                }
+
             }
 
             return View(userinfo_db);
         }
 
-        // GET: Users/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -77,9 +197,7 @@ namespace SalaryWeb.Controllers
             return View(userinfo_db);
         }
 
-        // POST: Users/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "id,name,email,password,C_union,current_job")] userinfo_db userinfo_db)
@@ -94,7 +212,7 @@ namespace SalaryWeb.Controllers
             return View(userinfo_db);
         }
 
-        // GET: Users/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -109,7 +227,7 @@ namespace SalaryWeb.Controllers
             return View(userinfo_db);
         }
 
-        // POST: Users/Delete/5
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

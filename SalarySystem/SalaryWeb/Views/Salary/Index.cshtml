@@ -5,11 +5,7 @@
 }
 
 <div class="container">
-    <h2>Salary table</h2>
-
-    <p>
-        @Html.ActionLink("Add new salary", "Create")
-    </p>
+    <h2 style="text-align: center;">Salary table</h2><h4 style="text-align: center;">for @Session["email"]</h4>
     <table class="table">
         <tr>
             <th>
@@ -47,4 +43,13 @@
         }
 
     </table>
+    <img src="~/Images/salaryy.png" style="border: 1px solid black; height: 130px; width: 50%; display: block; margin: 0 auto;" /><br />
+    <button type="button" class="btn btn-success btn-block" style="text-align: center; display: block; margin: 0 auto; width: 500px; margin-bottom: 10px;"
+            onclick="location.href='@Url.Action("Create", "Salary")';return false;">
+        Add salary
+    </button>
+        <button type="button" class="btn btn-danger btn-block" style="text-align: center; display: block; margin: 0 auto; width: 200px;"
+                onclick="location.href='@Url.Action("LogOut")';return false;">
+            Sign out
+        </button>
 </div>

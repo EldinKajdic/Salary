@@ -44,8 +44,10 @@
 
     </dl>
 
-    <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
-        @Html.ActionLink("Go back", "Index")
-    </p>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <a href="@Url.Action("Edit", "Edit", new { id = Model.id })" class="btn btn-warning">Edit</a>
+                <a href="@Url.Action("Index", "Salary")" class="btn btn-primary">Go back</a>
+            </div>
+        </div>
 </div>

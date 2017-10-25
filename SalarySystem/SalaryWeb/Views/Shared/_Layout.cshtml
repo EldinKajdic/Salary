@@ -25,10 +25,13 @@
                         <a class="nav-link" style="color: white;" href="@Url.Action("Index", "Home")">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" style="color: white;" href="@Url.Action("Index", "Users")">User</a>
+                        <a class="nav-link" style="color: white;" href="@Url.Action("Index", "Users")">Account</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" style="color: white;" href="@Url.Action("Index", "Salary")">Salary</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="color: white;" href="@Url.Action("LogOut")">@Html.Raw(ViewBag.LogOut)</a>
                     </li>
                 </ul>
             </div>
@@ -36,22 +39,22 @@
     </nav>
 
 
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
 
-        @Scripts.Render("~/vendor/jquery/jquery.min.js")
-        @Scripts.Render("~/Scripts/graph.js")
-        @Scripts.Render("~/vendor/bootstrap/js/bootstrap.bundle.min.js")
+    @Scripts.Render("~/vendor/jquery/jquery.min.js")
+    @Scripts.Render("~/Scripts/graph.js")
+    @Scripts.Render("~/vendor/bootstrap/js/bootstrap.bundle.min.js")
 
-        @RenderSection("scripts", required: false)
+    @RenderSection("scripts", required: false)
 
-        @RenderBody()
+    @RenderBody()
 
-        <footer class="py-5 bg-dark">
-            <div class="container">
-                <p class="m-0 text-center text-white">&copy; @DateTime.Now.Year - Salary System Corps. Inc.</p>
-            </div>
-        </footer>
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">&copy; @DateTime.Now.Year - Salary System Corps. Inc.</p>
+        </div>
+    </footer>
 
 </body>
 </html>
