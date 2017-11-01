@@ -20,6 +20,10 @@ namespace DbService
         bool DeleteUser(string email);
         [OperationContract]
         bool UpdatePassword(string email, string password);
+        [OperationContract]
+        bool CreateUserFromTxtFile();
+        [OperationContract]
+        string CheckForNewFiles();
 
     }
 }
