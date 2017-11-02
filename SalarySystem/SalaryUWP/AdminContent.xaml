@@ -16,8 +16,10 @@
                 <Run Text="In the admin panel, you can can choose to create new accounts, delete or update existing accounts as well as other things."/>
             </TextBlock>
         </Viewbox>
+        <Viewbox Stretch="Uniform" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="20, 0, 20, 200" MaxWidth="550" />
         <Image VerticalAlignment="Bottom" HorizontalAlignment="Center" Source="Assets/salaryy.png" MaxHeight="250" Margin="0,0,0,45"/>
         <CommandBar VerticalAlignment="Bottom">
+            <AppBarButton Icon="Upload" Label="Upload" Click="UploadUser"/>
             <AppBarButton Icon="Refresh" Label="Update" Click="UpdateUser"/>
             <AppBarButton Icon="Delete" Label="Delete user" Click="DeleteUser"/>
             <AppBarButton Icon="AddFriend" Label="Add user" Click="AddUser"/>

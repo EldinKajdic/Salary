@@ -32,6 +32,12 @@ namespace SalaryUWP.DbServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDbService/UpdatePassword", ReplyAction="http://tempuri.org/IDbService/UpdatePasswordResponse")]
         System.Threading.Tasks.Task<bool> UpdatePasswordAsync(string email, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDbService/CreateUserFromTxtFile", ReplyAction="http://tempuri.org/IDbService/CreateUserFromTxtFileResponse")]
+        System.Threading.Tasks.Task<bool> CreateUserFromTxtFileAsync(string path);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDbService/CheckForNewFiles", ReplyAction="http://tempuri.org/IDbService/CheckForNewFilesResponse")]
+        System.Threading.Tasks.Task<string> CheckForNewFilesAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -95,6 +101,14 @@ namespace SalaryUWP.DbServiceReference {
         
         public System.Threading.Tasks.Task<bool> UpdatePasswordAsync(string email, string password) {
             return base.Channel.UpdatePasswordAsync(email, password);
+        }
+        
+        public System.Threading.Tasks.Task<bool> CreateUserFromTxtFileAsync(string path) {
+            return base.Channel.CreateUserFromTxtFileAsync(path);
+        }
+        
+        public System.Threading.Tasks.Task<string> CheckForNewFilesAsync() {
+            return base.Channel.CheckForNewFilesAsync();
         }
         
         public virtual System.Threading.Tasks.Task OpenAsync() {

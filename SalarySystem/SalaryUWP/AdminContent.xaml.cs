@@ -40,5 +40,10 @@ namespace SalaryUWP
         {
             Frame.Navigate(typeof(UpdateUser));
         }
+
+        private void UploadUser(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(UploadUser));
+        }
     }
 }

@@ -36,6 +36,18 @@
   <wsdl:message name="IDbService_UpdatePassword_OutputMessage">
     <wsdl:part name="parameters" element="tns:UpdatePasswordResponse" />
   </wsdl:message>
+  <wsdl:message name="IDbService_CreateUserFromTxtFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateUserFromTxtFile" />
+  </wsdl:message>
+  <wsdl:message name="IDbService_CreateUserFromTxtFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateUserFromTxtFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDbService_CheckForNewFiles_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckForNewFiles" />
+  </wsdl:message>
+  <wsdl:message name="IDbService_CheckForNewFiles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckForNewFilesResponse" />
+  </wsdl:message>
   <wsdl:portType name="IDbService">
     <wsdl:operation name="AdminAuth">
       <wsdl:input wsaw:Action="http://tempuri.org/IDbService/AdminAuth" message="tns:IDbService_AdminAuth_InputMessage" />
@@ -56,6 +68,14 @@
     <wsdl:operation name="UpdatePassword">
       <wsdl:input wsaw:Action="http://tempuri.org/IDbService/UpdatePassword" message="tns:IDbService_UpdatePassword_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDbService/UpdatePasswordResponse" message="tns:IDbService_UpdatePassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateUserFromTxtFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDbService/CreateUserFromTxtFile" message="tns:IDbService_CreateUserFromTxtFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDbService/CreateUserFromTxtFileResponse" message="tns:IDbService_CreateUserFromTxtFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckForNewFiles">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDbService/CheckForNewFiles" message="tns:IDbService_CheckForNewFiles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDbService/CheckForNewFilesResponse" message="tns:IDbService_CheckForNewFiles_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IDbService" type="tns:IDbService">
@@ -98,6 +118,24 @@
     </wsdl:operation>
     <wsdl:operation name="UpdatePassword">
       <soap:operation soapAction="http://tempuri.org/IDbService/UpdatePassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateUserFromTxtFile">
+      <soap:operation soapAction="http://tempuri.org/IDbService/CreateUserFromTxtFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckForNewFiles">
+      <soap:operation soapAction="http://tempuri.org/IDbService/CheckForNewFiles" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

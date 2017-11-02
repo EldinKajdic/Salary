@@ -39,20 +39,21 @@ namespace SalaryWeb.Controllers
         [Authorize]
         public ActionResult Create()
         {
-            ViewBag.salary_id = new SelectList(db.userinfo_db, "id", "name");
+            ViewBag.salary_id = new SelectList(db.userinfo_db, Session["id"], "name");
             return View();
         }
 
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,currency,salary_id,salaryAmount")] salary_db salary_db)
+        public ActionResult Create([Bind(Include = "id,currency,salaryAmount")] salary_db salary_db)
         {
             if (ModelState.IsValid)
             {
                 DateTime createdAt = new DateTime();
                 createdAt = DateTime.Now;
                 salary_db.created_at = createdAt;
+                salary_db.salary_id = Convert.ToInt32(Session["id"]);
                 db.salary_db.Add(salary_db);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -81,16 +82,16 @@ namespace SalaryWeb.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,currency,salary_id,salaryAmount")] salary_db salary_db)
+        public ActionResult Edit([Bind(Include = "id,currency,salaryAmount")] salary_db salary_db)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(salary_db).State = EntityState.Modified;
                 db.Entry(salary_db).Property(x => x.created_at).IsModified = false;
+                db.Entry(salary_db).Property(x => x.salary_id).IsModified = false;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.salary_id = new SelectList(db.userinfo_db, "id", "name", salary_db.salary_id);
             return View(salary_db);
         }
 

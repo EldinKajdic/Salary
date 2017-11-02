@@ -34,11 +34,13 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.userinfo_db.name)
                 </td>
+
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
                     @Html.ActionLink("Details", "Details", new { id = item.id }) |
                     @Html.ActionLink("Delete", "Delete", new { id = item.id })
                 </td>
+
             </tr>
         }
 
@@ -48,8 +50,8 @@
             onclick="location.href='@Url.Action("Create", "Salary")';return false;">
         Add salary
     </button>
-        <button type="button" class="btn btn-danger btn-block" style="text-align: center; display: block; margin: 0 auto; width: 200px;"
-                onclick="location.href='@Url.Action("LogOut")';return false;">
-            Sign out
-        </button>
+    <button type="button" class="btn btn-danger btn-block" style="text-align: center; display: block; margin: 0 auto; width: 200px;"
+            onclick="location.href='@Url.Action("LogOut")';return false;">
+        Sign out
+    </button>
 </div>

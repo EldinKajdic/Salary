@@ -36,14 +36,6 @@
             </div>
 
             <div class="form-group">
-                @Html.Label("Password ", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
                 @Html.Label("Union", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.C_union, new { htmlAttributes = new { @class = "form-control" } })

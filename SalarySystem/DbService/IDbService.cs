@@ -21,7 +21,7 @@ namespace DbService
         [OperationContract]
         bool UpdatePassword(string email, string password);
         [OperationContract]
-        bool CreateUserFromTxtFile();
+        bool CreateUserFromTxtFile(string path);
         [OperationContract]
         string CheckForNewFiles();
 

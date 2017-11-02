@@ -200,7 +200,7 @@ namespace SalaryWeb.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,name,email,password,C_union,current_job")] userinfo_db userinfo_db)
+        public ActionResult Edit([Bind(Include = "id,name,email,C_union,current_job")] userinfo_db userinfo_db)
         {
             if (ModelState.IsValid)
             {
@@ -232,10 +232,19 @@ namespace SalaryWeb.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            userinfo_db userinfo_db = db.userinfo_db.Find(id);
-            db.userinfo_db.Remove(userinfo_db);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if ((int)Session["id"] == id)
+            {
+                return View();
+            }
+
+            else
+            {
+                userinfo_db userinfo_db = db.userinfo_db.Find(id);
+                db.userinfo_db.Remove(userinfo_db);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
         }
 
         protected override void Dispose(bool disposing)

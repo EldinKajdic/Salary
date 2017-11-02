@@ -96,12 +96,23 @@ namespace DbService
         }
 
 
-    public bool CreateUserFromTxtFile()
+    public bool CreateUserFromTxtFile(string path)
         {
             DateTime createdAt = new DateTime();
             createdAt = DateTime.Now;
+            string readText;
 
-            string readText = File.ReadAllText(@"D:\Repos\Salary\SalarySystem\Textfiles\userlist.txt");
+            try
+            {
+                readText = File.ReadAllText(path);
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+
+
             List<string> textfileSplitted = new List <string>();
             textfileSplitted = readText.Split(new string[] { Environment.NewLine }, StringSplitOptions.None).ToList();
             List<string> txtUserList = textfileSplitted.SelectMany(s => s.Split('\t')).ToList();
