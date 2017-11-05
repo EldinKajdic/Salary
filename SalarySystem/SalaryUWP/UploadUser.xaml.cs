@@ -26,6 +26,7 @@ namespace SalaryUWP
         public UploadUser()
         {
             InitializeComponent();
+            dateTextBlock.Text = DateTime.Today.ToString("dddd, dd MMMM yyyy");
         }
 
         private async void UploadUsersClick(object sender, RoutedEventArgs e)
